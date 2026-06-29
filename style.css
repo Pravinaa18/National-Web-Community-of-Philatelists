@@ -1,0 +1,283 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4f7fc;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    background:#003366;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:18px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    padding:8px 14px;
+    border-radius:8px;
+    transition:.3s;
+    font-weight:500;
+}
+
+.nav-links a:hover{
+    background:#FFD700;
+    color:#003366;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    background:linear-gradient(135deg,#003366,#0066cc);
+    color:white;
+    text-align:center;
+    padding:70px 20px;
+}
+
+.hero h1{
+    font-size:42px;
+}
+
+.hero p{
+    margin-top:10px;
+    font-size:18px;
+}
+
+.hero-buttons{
+    margin-top:30px;
+}
+
+.hero-buttons a{
+    display:inline-block;
+    text-decoration:none;
+    background:#FFD700;
+    color:#003366;
+    padding:12px 25px;
+    border-radius:8px;
+    margin:8px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.hero-buttons a:hover{
+    transform:scale(1.05);
+    background:white;
+}
+
+/* ================= STATS ================= */
+
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    padding:40px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h3{
+    color:#003366;
+    margin-bottom:15px;
+}
+
+.card h1{
+    font-size:45px;
+}
+
+/* ================= SECTION ================= */
+
+.section{
+    padding:20px 40px;
+}
+
+.section h2{
+    margin-bottom:20px;
+    color:#003366;
+}
+
+/* ================= QUICK ACTION ================= */
+
+.quick{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.quick a{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    text-decoration:none;
+    color:#003366;
+    text-align:center;
+    font-weight:bold;
+    box-shadow:0 5px 15px rgba(0,0,0,.12);
+    transition:.3s;
+}
+
+.quick a:hover{
+    background:#FFD700;
+}
+
+/* ================= RECENT STAMPS ================= */
+
+.recent{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.recent-card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+    transition:.3s;
+    text-align:center;
+}
+
+.recent-card:hover{
+    transform:translateY(-8px);
+}
+
+.recent-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.recent-card h3{
+    margin-top:15px;
+    color:#003366;
+}
+
+.recent-card p{
+    margin:8px;
+}
+
+.recent-card button{
+    margin:15px;
+    padding:10px 20px;
+    background:#003366;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.recent-card button:hover{
+    background:#FFD700;
+    color:#003366;
+}
+
+/* ================= DISCUSSION ================= */
+
+.discussion-box{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.discussion{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.12);
+}
+
+/* ================= BOX ================= */
+
+.box{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.12);
+}
+
+progress{
+    width:100%;
+    height:20px;
+    margin-bottom:15px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    margin-top:40px;
+    background:#003366;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+.navbar{
+    flex-direction:column;
+}
+
+.nav-links{
+    flex-direction:column;
+    margin-top:15px;
+}
+
+.hero h1{
+    font-size:30px;
+}
+
+.container{
+    grid-template-columns:1fr;
+}
+
+.quick{
+    grid-template-columns:1fr;
+}
+
+.recent{
+    grid-template-columns:1fr;
+}
+
+.discussion-box{
+    grid-template-columns:1fr;
+}
+
+}

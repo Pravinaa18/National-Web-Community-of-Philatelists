@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f6f9;
+}
+
+header{
+background:#003366;
+color:white;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+header h2{
+font-size:24px;
+}
+
+.logout{
+background:red;
+color:white;
+padding:10px 18px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+padding:40px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:10px;
+text-align:center;
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+transition:.3s;
+cursor:pointer;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card h3{
+color:#003366;
+margin-bottom:10px;
+}
+
+.card p{
+color:gray;
+margin-bottom:20px;
+}
+
+.card button{
+padding:10px 18px;
+background:#0077cc;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.card button:hover{
+background:#005fa3;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:#003366;
+color:white;
+margin-top:40px;
+}
+
+</style>
+
+</head>
+<body>
+    <!-- Navigation Bar -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        📮 Philatelists
+    </div>
+
+    <ul class="nav-links">
+
+        <li><a href="dashboard.html">Dashboard</a></li>
+
+        <li><a href="upload.html">Upload</a></li>
+
+        <li><a href="gallery.html">Gallery</a></li>
+
+        <li><a href="search.html">Search</a></li>
+
+        <li><a href="forum.html">Forum</a></li>
+
+        <li><a href="profile.html">Profile</a></li>
+
+        <li><a href="notifications.html">Notifications</a></li>
+
+        <li><a href="about.html">About</a></li>
+
+        <li><a href="contact.html">Contact</a></li>
+
+        <li><a href="#" onclick="logout()">Logout</a></li>
+
+    </ul>
+
+</nav>
+
+<!-- Hero -->
+
+<section class="hero">
+
+    <h1>
+        👋 Welcome,
+        <span id="username"></span>
+    </h1>
+
+    <p>
+        National Web Community of Philatelists
+    </p>
+
+    <p>
+        Connecting Stamp Collectors Across India
+    </p>
+
+    <div class="hero-buttons">
+
+        <a href="upload.html">
+            📤 Upload Stamp
+        </a>
+
+        <a href="gallery.html">
+            🖼 Explore Gallery
+        </a>
+
+    </div>
+
+</section>
+
+<!-- Statistics -->
+
+<section class="container">
+
+<div class="card">
+
+<h3>📮 Total Uploaded Stamps</h3>
+
+<h1 id="stampCount">0</h1>
+
+</div>
+
+<div class="card">
+
+<h3>👥 Total Users</h3>
+
+<h1 id="userCount">0</h1>
+
+</div>
+
+<div class="card">
+
+<h3>💬 Discussions</h3>
+
+<h1 id="postCount">0</h1>
+
+</div>
+
+<div class="card">
+
+<h3>⭐ My Collection</h3>
+
+<h1 id="myCollection">0</h1>
+
+</div>
+
+</section>
+
+<!-- Quick Actions -->
+
+<section class="section">
+
+<h2>⚡ Quick Actions</h2>
+
+<div class="quick">
+
+<a href="upload.html">
+📤 Upload Stamp
+</a>
+
+<a href="gallery.html">
+🖼 Gallery
+</a>
+
+<a href="search.html">
+🔍 Search
+</a>
+
+<a href="forum.html">
+💬 Forum
+</a>
+
+</div>
+<!-- Recent Uploaded Stamps -->
+
+<section class="section">
+
+<h2>📮 Recent Uploaded Stamps</h2>
+
+<div class="recent">
+
+<div class="recent-card">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/India_1948_Mahatma_Gandhi_10R.jpg" alt="Stamp">
+
+<h3>Gandhi Stamp</h3>
+
+<p><strong>Country:</strong> India</p>
+
+<p><strong>Year:</strong> 1948</p>
+
+<button>View Details</button>
+
+</div>
+
+<div class="recent-card">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Penny_black.jpg" alt="Stamp">
+
+<h3>Penny Black</h3>
+
+<p><strong>Country:</strong> United Kingdom</p>
+
+<p><strong>Year:</strong> 1840</p>
+
+<button>View Details</button>
+
+</div>
+
+<div class="recent-card">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/48/India_Postage_Stamp_1973_Tiger.jpg" alt="Stamp">
+
+<h3>Tiger Stamp</h3>
+
+<p><strong>Country:</strong> India</p>
+
+<p><strong>Year:</strong> 1973</p>
+
+<button>View Details</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Stamp of the Day -->
+
+<section class="section">
+
+<h2>⭐ Stamp of the Day</h2>
+
+<div class="box">
+
+<h3>🇬🇧 Penny Black</h3>
+
+<p><b>Country:</b> United Kingdom</p>
+
+<p><b>Year:</b> 1840</p>
+
+<p><b>Category:</b> Historical</p>
+<p id="clock"></p>
+<p style="margin-top:10px;">
+The world's first adhesive postage stamp.
+</p>
+
+</div>
+
+</section>
+
+<!-- Latest Discussions -->
+
+<section class="section">
+
+<h2>💬 Latest Discussions</h2>
+
+<div class="discussion-box">
+
+<div class="discussion">
+
+<h3>How to preserve old stamps?</h3>
+
+<p>Posted by Admin • 2 Hours Ago</p>
+
+</div>
+
+<div class="discussion">
+
+<h3>Rare Indian Stamp Collection</h3>
+
+<p>Posted by Rahul • Yesterday</p>
+
+</div>
+
+<div class="discussion">
+
+<h3>Best Stamp Albums?</h3>
+
+<p>Posted by Pravi • 3 Days Ago</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Notifications -->
+
+<section class="section">
+
+<h2>🔔 Notifications</h2>
+
+<div class="box">
+
+<p>✅ Welcome to National Web Community of Philatelists.</p>
+
+<br>
+
+<p>📮 New Stamp Uploaded Successfully.</p>
+
+<br>
+
+<p>💬 New Discussion Added.</p>
+
+</div>
+
+</section>
+
+<!-- Community Progress -->
+
+<section class="section">
+
+<h2>📈 Community Progress</h2>
+
+<div class="box">
+
+<p>Users Joined</p>
+
+<progress value="80" max="100"></progress>
+
+<p>Collections Uploaded</p>
+
+<progress value="65" max="100"></progress>
+
+<p>Forum Activity</p>
+
+<progress value="50" max="100"></progress>
+
+</div>
+
+</section>
+
+<!-- Footer -->
+
+<footer>
+
+<h3>National Web Community of Philatelists</h3>
+
+<p>Connecting Stamp Collectors Across India</p>
+
+<br>
+
+<p>📧 philatelists@gmail.com</p>
+
+<p>📞 +91 7845850211</p>
+
+<br>
+
+<p>© 2026 All Rights Reserved.</p>
+
+</footer>
+
+</section>
+<script>
+
+// ===========================
+// Login Check
+// ===========================
+
+let user = JSON.parse(localStorage.getItem("user"));
+
+if(!user){
+    alert("Please login first!");
+    window.location.href = "login.html";
+}
+
+document.getElementById("username").innerHTML = user.name;
+
+
+// ===========================
+// Dashboard Data
+// ===========================
+
+let stamps = JSON.parse(localStorage.getItem("stamps")) || [];
+let posts = JSON.parse(localStorage.getItem("posts")) || [];
+
+let users = localStorage.getItem("user") ? 1 : 0;
+
+
+// ===========================
+// Animated Counter
+// ===========================
+
+function animateValue(id,end){
+
+let obj=document.getElementById(id);
+
+let start=0;
+
+let speed=30;
+
+let timer=setInterval(function(){
+
+start++;
+
+obj.innerHTML=start;
+
+if(start>=end){
+
+clearInterval(timer);
+
+}
+
+},speed);
+
+}
+
+animateValue("stampCount",stamps.length);
+animateValue("userCount",users);
+animateValue("postCount",posts.length);
+animateValue("myCollection",stamps.length);
+
+
+// ===========================
+// Current Date
+// ===========================
+
+let today=new Date();
+
+let date=today.toDateString();
+
+let footer=document.querySelector("footer");
+
+footer.innerHTML += "<br><br>📅 "+date;
+
+
+// ===========================
+// Logout
+// ===========================
+
+function logout(){
+
+let choice=confirm("Are you sure you want to logout?");
+
+if(choice){
+
+localStorage.removeItem("user");
+
+window.location.replace("login.html");
+
+}
+
+}
+
+
+// ===========================
+// Welcome Notification
+// ===========================
+
+setTimeout(function(){
+
+alert("🎉 Welcome back, "+user.name+"!");
+
+},500);
+
+
+// ===========================
+// Back Button Disable
+// ===========================
+
+history.pushState(null,null,location.href);
+
+window.onpopstate=function(){
+
+history.go(1);
+
+};
+setInterval(function(){
+
+let now=new Date();
+
+document.getElementById("clock").innerHTML=
+"🕒 "+now.toLocaleTimeString();
+
+},1000);
+
+</script>
+</body>
+</html>

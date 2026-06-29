@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Profile</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f6f9;
+}
+
+header{
+background:#003366;
+color:white;
+padding:15px;
+text-align:center;
+}
+
+.container{
+width:400px;
+margin:40px auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+text-align:center;
+}
+
+.profile-img{
+width:120px;
+height:120px;
+border-radius:50%;
+border:4px solid #003366;
+object-fit:cover;
+margin-bottom:20px;
+}
+
+h2{
+color:#003366;
+margin-bottom:15px;
+}
+
+.info{
+text-align:left;
+margin-top:20px;
+}
+
+.info p{
+margin:12px 0;
+font-size:16px;
+}
+
+span{
+font-weight:bold;
+color:#003366;
+}
+
+button{
+margin-top:25px;
+padding:12px 20px;
+background:#0077cc;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+font-size:16px;
+}
+
+button:hover{
+background:#005fa3;
+}
+
+</style>
+
+</head>
+<body>
+
+<header>
+<h1>My Profile</h1>
+</header>
+
+<div class="container">
+
+<img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="profile-img">
+
+<h2 id="username">User Name</h2>
+
+<div class="info">
+
+<p><span>👤 Name:</span> <span id="name"></span></p>
+
+<p><span>📧 Email:</span> <span id="email"></span></p>
+
+</div>
+
+<button onclick="window.location.href='dashboard.html'">
+⬅ Back to Dashboard
+</button>
+
+</div>
+
+<script>
+
+let user = JSON.parse(localStorage.getItem("user"));
+
+if(user){
+
+document.getElementById("username").innerHTML = user.name;
+
+document.getElementById("name").innerHTML = user.name;
+
+document.getElementById("email").innerHTML = user.email;
+
+}else{
+
+alert("Please Login First");
+
+window.location.href = "login.html";
+
+}
+
+</script>
+
+</body>
+</html>
