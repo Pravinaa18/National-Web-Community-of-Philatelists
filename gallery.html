@@ -75,12 +75,19 @@ color:white;
 
 .like{
 background:#28a745;
+color:#bedac4;
+
 }
 
 .comment{
 background:#0077cc;
+color:#7691a5
 }
 
+.delete{
+background:#060f3b;
+color:#868daf;
+}
 .empty{
 text-align:center;
 margin-top:80px;
@@ -113,13 +120,13 @@ document.getElementById("empty").innerHTML="No Stamps Uploaded Yet.";
 
 }else{
 
-stamps.forEach(function(stamp){
+stamps.forEach(function(stamp, index){
 
 gallery.innerHTML += `
 
 <div class="card">
 
-<img src="${stamp.image || 'https://via.placeholder.com/300x220?text=No+Image'}">
+<img src="${stamp.image }"alt="${stamp.title}">
 
 <div class="card-content">
 
@@ -134,11 +141,11 @@ gallery.innerHTML += `
 <p>${stamp.description}</p>
 
 <div class="btns">
+    <button class="like" onclick="likeStamp(${index})">👍 Like</button>
 
-<button class="like">👍 Like</button>
+    <button class="comment" onclick="commentStamp(${index})">💬 Comment</button>
 
-<button class="comment">💬 Comment</button>
-
+    <button class="delete" onclick="deleteStamp(${index})">🗑 Delete</button>
 </div>
 
 </div>
@@ -149,6 +156,26 @@ gallery.innerHTML += `
 
 });
 
+}
+function likeStamp(index){
+    alert("Liked!");
+}
+
+function commentStamp(index){
+    let comment = prompt("Enter your comment:");
+    if(comment){
+        alert("Comment Added: " + comment);
+    }
+}
+
+function deleteStamp(index){
+    let stamps = JSON.parse(localStorage.getItem("stamps")) || [];
+
+    if(confirm("Delete this stamp?")){
+        stamps.splice(index,1);
+        localStorage.setItem("stamps", JSON.stringify(stamps));
+        location.reload();
+    }
 }
 
 </script>
