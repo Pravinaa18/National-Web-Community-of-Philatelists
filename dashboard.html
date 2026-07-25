@@ -300,6 +300,19 @@ The world's first adhesive postage stamp.
 </p>
 
 </div>
+<div id="welcomePopup" class="popup">
+
+    <div class="popup-content">
+
+        <h2>🎉 Login Successful</h2>
+
+        <p>Welcome back, <span id="popupUser"></span>!</p>
+
+        <button onclick="closePopup()">Continue</button>
+
+    </div>
+
+</div>
 
 </section>
 
@@ -412,26 +425,30 @@ The world's first adhesive postage stamp.
 // Login Check
 // ===========================
 
-let user = JSON.parse(localStorage.getItem("user"));
 
-if(!user){
-    alert("Please login first!");
-    window.location.href = "login.html";
+
+
+async function loadStamps() {
+  let res = await fetch("http://localhost:3000/stamps");
+  let stamps = await res.json();
+
+  let container = document.querySelector(".recent");
+  container.innerHTML = "";
+
+  stamps.slice(-3).reverse().forEach(stamp => {
+    container.innerHTML += `
+      <div class="recent-card">
+        <img src="${stamp.image}">
+        <h3>${stamp.title}</h3>
+        <p><b>Country:</b> ${stamp.country}</p>
+        <p><b>Year:</b> ${stamp.year}</p>
+        <button onclick="viewDetails('${stamp._id}')">View Details</button>
+      </div>
+    `;
+  });
 }
 
-document.getElementById("username").innerHTML = user.name;
-
-
-// ===========================
-// Dashboard Data
-// ===========================
-
-let stamps = JSON.parse(localStorage.getItem("stamps")) || [];
-let posts = JSON.parse(localStorage.getItem("posts")) || [];
-
-let users = localStorage.getItem("user") ? 1 : 0;
-
-
+loadStamps();
 // ===========================
 // Animated Counter
 // ===========================
@@ -461,7 +478,7 @@ clearInterval(timer);
 }
 
 animateValue("stampCount",stamps.length);
-animateValue("userCount",users);
+animateValue("userCount", users.length);
 animateValue("postCount",posts.length);
 animateValue("myCollection",stamps.length);
 
@@ -475,7 +492,6 @@ let today=new Date();
 let date=today.toDateString();
 
 let footer=document.querySelector("footer");
-
 footer.innerHTML += "<br><br>📅 "+date;
 
 
@@ -502,11 +518,17 @@ window.location.replace("login.html");
 // Welcome Notification
 // ===========================
 
-setTimeout(function(){
+if(sessionStorage.getItem("showWelcome") === "true"){
+    document.getElementById("popupUser").innerHTML = user.name;
+    document.getElementById("welcomePopup").style.display = "flex";
+    sessionStorage.removeItem("showWelcome");
+}
 
-alert("🎉 Welcome back, "+user.name+"!");
+function closePopup(){
 
-},500);
+document.getElementById("welcomePopup").style.display = "none";
+
+}
 
 
 // ===========================
@@ -529,6 +551,17 @@ document.getElementById("clock").innerHTML=
 
 },1000);
 
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get("id");
+
 </script>
+<button onclick="viewDetails('${stamp._id}')">View Details</button>
+<script>
+function viewDetails(id){
+  console.log("ID:", id);
+  window.location.href = "details.html?id=" + id;
+}
+</script>
+
 </body>
 </html>
