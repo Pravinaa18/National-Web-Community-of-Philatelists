@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<script>
+let user = JSON.parse(localStorage.getItem("user"));
+
+if(user){
+
+document.getElementById("welcome").innerHTML =
+"👋 Welcome, " + user.name;
+
+}
+
+function logout(){
+
+if(confirm("Are you sure you want to logout?")){
+
+localStorage.removeItem("user");
+
+alert("Logged Out Successfully");
+
+window.location.href="login.html";
+
+}
+
+}
+
+</script>
+
+<body>
+    <nav class="navbar">
+
+    <div class="logo">
+        📮 Philatelists
+    </div>
+
+    <ul class="nav-links">
+
+        <li><a href="index.html">🏠 Home</a></li>
+
+        <li><a href="dashboard.html">📊 Dashboard</a></li>
+
+        <li><a href="upload.html">📤 Upload</a></li>
+
+        <li><a href="gallery.html">🖼 Gallery</a></li>
+
+        <li><a href="search.html">🔍 Search</a></li>
+
+        <li><a href="forum.html">💬 Forum</a></li>
+
+        <li><a href="profile.html">👤 Profile</a></li>
+
+        <li><a href="notifications.html">🔔 Notifications</a></li>
+
+        <li><a href="about.html">ℹ About</a></li>
+
+        <li><a href="contact.html">📞 Contact</a></li>
+
+        <li><a href="#" onclick="logout()">🚪 Logout</a></li>
+
+    </ul>
+
+    <div id="welcome"></div>
+
+</nav>
+</body>

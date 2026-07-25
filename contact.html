@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact Us</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f5f7fa;
+}
+
+/* Navbar */
+
+nav{
+background:#003366;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav h2{
+color:white;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:20px;
+}
+
+nav ul li a{
+color:white;
+text-decoration:none;
+font-weight:500;
+}
+
+nav ul li a:hover{
+color:#FFD700;
+}
+
+/* Contact Section */
+
+.contact{
+
+max-width:1100px;
+
+margin:60px auto;
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:40px;
+
+padding:20px;
+
+}
+
+.left{
+
+background:#003366;
+
+color:white;
+
+padding:40px;
+
+border-radius:15px;
+
+}
+
+.left h1{
+
+margin-bottom:20px;
+
+}
+
+.left p{
+
+line-height:1.8;
+
+margin-bottom:20px;
+
+}
+
+.info{
+
+margin-top:25px;
+
+}
+
+.info p{
+
+margin:15px 0;
+
+font-size:17px;
+
+}
+
+.right{
+
+background:white;
+
+padding:40px;
+
+border-radius:15px;
+
+box-shadow:0 5px 20px rgba(0,0,0,.15);
+
+}
+
+.right h2{
+
+margin-bottom:20px;
+
+color:#003366;
+
+}
+
+input,textarea{
+
+width:100%;
+
+padding:15px;
+
+margin:10px 0;
+
+border:1px solid #ccc;
+
+border-radius:8px;
+
+font-size:16px;
+
+}
+
+textarea{
+
+height:150px;
+
+resize:none;
+
+}
+
+button{
+
+width:100%;
+
+padding:15px;
+
+background:#003366;
+
+color:white;
+
+border:none;
+
+border-radius:8px;
+
+font-size:17px;
+
+cursor:pointer;
+
+}
+
+button:hover{
+
+background:#0055aa;
+
+}
+
+footer{
+
+background:#003366;
+
+color:white;
+
+text-align:center;
+
+padding:20px;
+
+margin-top:50px;
+
+}
+
+@media(max-width:768px){
+
+.contact{
+
+grid-template-columns:1fr;
+
+}
+
+nav{
+
+flex-direction:column;
+
+}
+
+nav ul{
+
+margin-top:15px;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<h2>📮 Philatelists</h2>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="dashboard.html">Dashboard</a></li>
+
+<li><a href="gallery.html">Gallery</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<section class="contact">
+
+<div class="left">
+
+<h1>Contact Us</h1>
+
+<p>
+
+Have any questions, suggestions, or feedback?
+
+Feel free to contact the National Web Community of Philatelists team.
+
+We are always happy to help stamp collectors across India.
+
+</p>
+
+<div class="info">
+
+<p>📧 Email : philatelists@gmail.com</p>
+
+<p>📞 Phone : +91 9876543210</p>
+
+<p>📍 Address : Chennai, Tamil Nadu, India</p>
+
+<p>🌐 Website : www.philatelists.in</p>
+
+</div>
+
+</div>
+
+<div class="right">
+
+<h2>Send Message</h2>
+
+<form id="contactForm">
+
+<input type="text" placeholder="Your Name" required>
+
+<input type="email" placeholder="Your Email" required>
+
+<input type="text" placeholder="Subject" required>
+
+<textarea placeholder="Write your message..." required></textarea>
+
+<button type="submit">Send Message</button>
+
+</form>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 National Web Community of Philatelists | All Rights Reserved.
+
+</footer>
+
+<script>
+
+document.getElementById("contactForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+alert("✅ Thank you! Your message has been sent successfully.");
+
+this.reset();
+
+});
+
+</script>
+
+</body>
+</html>

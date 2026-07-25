@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Stamps</title>
+
+<style>
+
+body{
+font-family:Arial,sans-serif;
+background:#f4f6f9;
+margin:0;
+}
+
+header{
+background:#003366;
+color:white;
+padding:15px;
+text-align:center;
+}
+
+.container{
+width:90%;
+max-width:900px;
+margin:30px auto;
+}
+
+input{
+width:100%;
+padding:12px;
+font-size:16px;
+border:1px solid #ccc;
+border-radius:5px;
+margin-bottom:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+margin-bottom:15px;
+border-radius:10px;
+box-shadow:0 3px 10px rgba(0,0,0,0.2);
+}
+
+.card img{
+width:120px;
+height:120px;
+object-fit:cover;
+border-radius:5px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Search Stamps</h1>
+</header>
+
+<div class="container">
+
+<input type="text" id="search" placeholder="Search by Stamp Name or Country..." onkeyup="searchStamp()">
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+let stamps = JSON.parse(localStorage.getItem("stamps")) || [];
+
+function display(data){
+
+let output="";
+
+if(data.length==0){
+
+output="<h2>No Stamp Found</h2>";
+
+}else{
+
+data.forEach(stamp=>{
+
+output+=`
+
+<div class="card">
+
+<img src="${stamp.image || 'https://via.placeholder.com/120'}">
+
+<h3>${stamp.name}</h3>
+
+<p><b>Country:</b> ${stamp.country}</p>
+
+<p><b>Year:</b> ${stamp.year}</p>
+
+<p><b>Category:</b> ${stamp.category}</p>
+
+<p>${stamp.description}</p>
+
+</div>
+
+`;
+
+});
+
+}
+
+document.getElementById("result").innerHTML=output;
+
+}
+
+display(stamps);
+
+function searchStamp(){
+
+let value=document.getElementById("search").value.toLowerCase();
+
+let filtered=stamps.filter(stamp=>
+
+stamp.name.toLowerCase().includes(value) ||
+
+stamp.country.toLowerCase().includes(value)
+
+);
+
+display(filtered);
+
+}
+
+</script>
+
+</body>
+</html>

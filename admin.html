@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Admin Panel</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6f9;
+margin:0;
+}
+
+header{
+background:#003366;
+color:white;
+padding:15px;
+text-align:center;
+}
+
+.container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:40px;
+}
+
+.card{
+
+background:white;
+
+padding:30px;
+
+text-align:center;
+
+border-radius:10px;
+
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+
+}
+
+button{
+
+padding:10px 20px;
+
+background:red;
+
+color:white;
+
+border:none;
+
+border-radius:5px;
+
+cursor:pointer;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Admin Dashboard</h1>
+
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>👥 Users</h2>
+
+<p>Manage Registered Users</p>
+
+<button>Delete User</button>
+
+</div>
+
+<div class="card">
+
+<h2>📮 Stamps</h2>
+
+<p>Manage Uploaded Stamps</p>
+
+<button>Delete Stamp</button>
+
+</div>
+
+<div class="card">
+
+<h2>💬 Discussions</h2>
+
+<p>Manage Forum Posts</p>
+
+<button>Delete Post</button>
+
+</div>
+
+<div class="card">
+
+<h2>📊 Statistics</h2>
+
+<p>Total Users : 1</p>
+
+<p>Total Stamps : 0</p>
+
+<p>Total Posts : 0</p>
+
+</div>
+
+</div>
+
+</body>
+</html>
