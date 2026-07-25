@@ -139,7 +139,8 @@ document.getElementById("loginForm").addEventListener("submit", function(e){
 
     if(user && email === user.email && password === user.password){
         alert("Login Successful ✅");
-        window.location.replace("dashboard.html");
+        sessionStorage.setItem("showWelcome", "true");
+        window.location.href = "dashboard.html";
     } else {
         alert("Invalid Email or Password ❌");
     }
